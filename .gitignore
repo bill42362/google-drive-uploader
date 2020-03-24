@@ -1,0 +1,12 @@
+# editor
+.editorconfig
+*.swp
+.vscode
+
+*.DS_Store
+*backup*
+*.dat
+*.json
+*.crt
+*.key
+*.pem
