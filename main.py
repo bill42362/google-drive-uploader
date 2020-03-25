@@ -10,6 +10,7 @@ from pydrive.drive import GoogleDrive
 
 credentialsFilename = 'saved_user_creds.dat'
 
+# ref: https://stackoverflow.com/a/24542604/2605764
 gauth = GoogleAuth()
 gauth.LoadCredentialsFile(credentialsFilename)
 if gauth.credentials is None:
