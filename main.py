@@ -33,12 +33,15 @@ drive = GoogleDrive(gauth)
 paths = args.filepaths
 regProg = re.compile('^.*\/')
 for path in paths:
-        try:
-            filename = regProg.sub('', path)
-            print('Uploading ', filename, ' ...')
-            file = drive.CreateFile({ 'parents': [{ 'kind': 'drive#fileLink', 'id': args.dirId }] })
-            file.SetContentFile(filename)
-            file.Upload()
-            print('Upload ', filename, ' complete')
-        except:
-            print("Unexpected error:", sys.exc_info()[0])
+    try:
+        filename = regProg.sub('', path)
+        print('Uploading ', filename, ' ...')
+        if args.dirId is None:
+            file = drive.CreateFile({ 'title': filename })
+        else:
+            file = drive.CreateFile({ 'title': filename, 'parents': [{ 'kind': 'drive#fileLink', 'id': args.dirId }] })
+        file.SetContentFile(path)
+        file.Upload()
+        print('Upload ', filename, ' complete')
+    except:
+        print("Unexpected error:", sys.exc_info()[0])
