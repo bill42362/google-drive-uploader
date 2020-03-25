@@ -8,6 +8,6 @@ Enable upload files to google drive.
 
 # Usage
 ```
-$ pip3 install --upgrade pydrive
-$ python3 main.py [file1] [file2] [...]
+$ pip3 install --upgrade pydrive argparse
+$ python3 main.py -h
 ```
